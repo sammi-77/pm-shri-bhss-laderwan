@@ -72,3 +72,14 @@
 @media(max-width:950px){.school-snapshot{min-height:290px}.about-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:720px){.school-snapshot{min-height:280px;padding:24px}.snapshot-year{font-size:90px}.about-grid{grid-template-columns:1fr;gap:14px}.about-lead{min-height:0;padding:34px 28px}.about-lead .large-quote{left:22px;top:10px}.about-details{padding:25px 22px}.about-info-grid{grid-template-columns:1fr;margin-top:14px}}
 @media(max-width:440px){.snapshot-top{font-size:8px}.snapshot-levels{gap:8px}.snapshot-levels b{font-size:10px}.about-details .fact-row{align-items:flex-start}.about-info-card{padding:22px 20px}}
+.academics-section{background:#f5f2eb;}
+.academic-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;}
+.academic-card{position:relative;padding:28px 30px;background:#fffefa;border:1px solid #e1dfd6;border-top:3px solid var(--gold);}
+.academic-level{color:#9b7a4b;font-size:9px;font-weight:700;letter-spacing:.14em;}
+.academic-card h3{margin:12px 0 17px;color:var(--navy);font:26px var(--serif);}
+.academic-card h3 em{color:#a87b3e;font-weight:500;}
+.academic-card ul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px 18px;margin:0;padding-left:18px;color:var(--muted);font-size:12px;line-height:1.65;}
+.academic-card li{padding-left:2px;}
+.academic-card small{display:block;color:#9b7a4b;font-size:9px;letter-spacing:.06em;}
+@media(max-width:720px){.academic-grid{grid-template-columns:1fr}.academic-card{padding:24px}}
+@media(max-width:440px){.academic-card ul{grid-template-columns:1fr}}
