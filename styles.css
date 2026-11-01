@@ -4,3 +4,26 @@
 @media(max-width:720px){html{scroll-padding-top:70px}.site-header{height:70px;padding:0 6%}.menu-toggle{display:block;border:1px solid #d8d8d0;background:transparent;padding:7px 12px;font-size:11px;color:var(--navy)}.site-header nav{display:none;position:absolute;top:69px;left:0;right:0;background:var(--paper);padding:14px 6% 20px;border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0;box-shadow:0 12px 20px #102b4912}.site-header nav.open{display:flex}.site-header nav a,.nav-admin{padding:10px 0;text-align:left;border-bottom:1px solid var(--line)}.nav-admin{border:0}.hero{padding:64px 7% 65px;grid-template-columns:1fr;gap:35px}.hero h1{font-size:53px}.photo-placeholder{min-height:210px}.hero-facts{margin-top:36px;gap:24px}.hero-index{bottom:18px}.ticker{padding:12px 7%;gap:12px;font-size:10px}.ticker-label{white-space:nowrap}.section{padding:72px 7%}.section-heading{grid-template-columns:1fr;gap:16px;margin-bottom:36px}.section-heading h2,.complaint-intro h2{font-size:47px}.about-grid{grid-template-columns:1fr;gap:12px}.about-lead p{font-size:21px}.card-grid{grid-template-columns:1fr 1fr}.student-band{padding:26px;align-items:flex-start;gap:20px;flex-direction:column}.class-chips{grid-template-columns:repeat(4,auto)}.alumni-panel{grid-template-columns:70px 1fr;gap:16px;padding:21px}.alumni-orbit{width:62px;height:62px}.arrow-link{grid-column:2;justify-self:start}.gallery-grid{grid-template-columns:1fr 1fr;grid-auto-rows:140px}.date-layout{grid-template-columns:1fr;gap:18px}.class-select{flex-direction:row}.class-button{flex:1;text-align:center;padding:10px 2px}.notice-row{grid-template-columns:75px 1fr;gap:12px}.notice-tag{grid-column:2;justify-self:start}.complaint-section{grid-template-columns:1fr;gap:30px;padding:72px 7%}.complaint-intro>p{max-width:470px}.privacy-note{margin-top:18px}.site-footer{padding:36px 7% 18px}.footer-bottom{gap:10px;flex-wrap:wrap}.form-foot{align-items:flex-start;flex-direction:column}.form-foot>span{max-width:none}}
 @media(max-width:440px){.hero h1{font-size:45px}.hero-actions{align-items:flex-start;flex-direction:column;gap:14px}.hero-facts{gap:15px}.hero-facts span{font-size:9px}.section-heading h2,.complaint-intro h2{font-size:42px}.card-grid{grid-template-columns:1fr}.class-chips{grid-template-columns:repeat(2,auto)}.complaint-form{grid-template-columns:1fr}.complaint-form label[for=complaint-class],.complaint-form select,.complaint-form label[for=complaint-name],#complaint-name,.complaint-form label[for=complaint-subject],#complaint-subject,.complaint-form label[for=complaint-message],#complaint-message{grid-column:1;grid-row:auto}.gallery-grid{grid-auto-rows:125px}.date-row{gap:15px}.date-row>span:last-child{text-align:right}.footer-bottom span:nth-child(2){display:none}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
+
+/* Touch-friendly controls and a consistent, swipeable photo carousel. */
+.gallery-grid{display:flex;grid-auto-rows:auto;overflow-x:auto;overflow-y:hidden;gap:14px;scroll-snap-type:x mandatory;scrollbar-width:thin;scrollbar-color:#cbb18d transparent;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;}
+.gallery-empty{flex:0 0 100%;min-height:180px;}
+.gallery-item{flex:0 0 calc((100% - 28px)/3);width:calc((100% - 28px)/3);min-width:0;min-height:0;margin:0;aspect-ratio:4/3;scroll-snap-align:start;}
+.gallery-item img{display:block;width:100%;height:100%;aspect-ratio:4/3;object-fit:cover;}
+.gallery-controls{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:16px;}
+.gallery-control{min-width:44px;min-height:44px;padding:9px 14px;border:1px solid #d8d8d0;background:var(--paper);color:var(--navy);cursor:pointer;touch-action:manipulation;}
+.gallery-control:disabled{opacity:.45;cursor:default;}
+.gallery-position{color:var(--muted);font-size:12px;text-align:center;}
+@media(max-width:720px){
+  .button,.menu-toggle,.nav-admin,.tab,.class-button,.admin-tab,.icon-button,.text-button,.admin-record button{min-height:44px;touch-action:manipulation;}
+  .button{padding:12px 16px;}
+  .gallery-grid{gap:12px;}
+  .gallery-item{flex-basis:calc((100% - 12px)/2);width:calc((100% - 12px)/2);}
+  .gallery-controls{position:sticky;left:0;}
+  .complaint-form input,.complaint-form select,.complaint-form textarea,.admin-dialog input,.admin-dialog select,.admin-dialog textarea{font-size:16px;}
+}
+@media(max-width:440px){.gallery-item{flex-basis:100%;width:100%;}.gallery-controls{gap:8px}.gallery-control{padding:8px 10px}}
+.staff-details{margin:16px 0 0;padding-top:11px;border-top:1px solid var(--line);display:grid;gap:9px;}
+.staff-details div{display:grid;grid-template-columns:minmax(95px,.8fr) 1.2fr;gap:10px;align-items:start;}
+.staff-details dt{font-size:10px;color:var(--muted);}
+.staff-details dd{margin:0;font-size:11px;color:var(--ink);overflow-wrap:anywhere;}
