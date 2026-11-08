@@ -1,10 +1,10 @@
 # PM SHRI BHSS Laderwan website
 
-A responsive school information portal for Classes 9–12. Secondary covers Classes 9–10; Higher Secondary covers Classes 11–12. Staff, student, alumni and school details are not fabricated. The school photograph space stays intentionally blank until an administrator adds a real image.
+A responsive, multi-page school information portal for Classes 9–12. Secondary covers Classes 9–10; Higher Secondary covers Classes 11–12. Staff, student and alumni identities are not fabricated.
 
 ## Preview
 
-Open `index.html` in a browser. Without backend configuration, admin-managed content can be previewed and edited locally in that browser. Local edits are not shared. The complaint form clearly reports that messages are not transmitted in preview mode.
+Open `index.html` in a browser and use the shared navigation to visit About, Academics, Community, Gallery and Updates. Without backend configuration, admin-managed content can be previewed and edited locally in that browser. Local edits are not shared. The complaint form clearly reports that messages are not transmitted in preview mode.
 
 ## Deploy on Vercel
 
@@ -15,6 +15,7 @@ After deployment, the site is publicly viewable. Do not add student or complaint
 ## Secure shared mode (Supabase)
 
 1. Create a Supabase project and run `supabase-schema.sql` in its SQL Editor.
+   To enable direct Gallery uploads, also run `supabase-gallery-storage.sql` once. Gallery images are public to visitors; only signed-in admins with the admin role can upload, and image files are limited to 5 MB.
 2. Create an administrator login in Supabase Authentication. Using a trusted server-side admin method, set that account's **app_metadata** to `{ "role": "admin" }`. Do not use user-editable `user_metadata` for authorization.
 3. Copy `config.example.js` to `config.js`, then set the project URL and public anon key. The page loads `config.js` before the Supabase and app scripts. The anon key is intended for the browser; never use a service role key.
 4. Deploy the folder to a static HTTPS host. Configure the Supabase Auth site URL and allowed redirect URLs to the deployed site. Use a strong unique admin password and enable MFA in Supabase Auth if available for your project.
@@ -24,12 +25,17 @@ Supabase Row Level Security makes content public-readable and admin-writable; co
 
 ## Admin-managed sections
 
-Sign in from the header to edit notices, staff, students, alumni, class-wise date sheets and gallery entries, and to review complaints. Date sheet and gallery URLs should point to HTTPS resources accessible to the intended audience. Add content only after the school verifies it and has permission to publish identifying information.
+Sign in from the header to edit notices, staff, students, alumni, class-wise date sheets and gallery entries, and to review complaints. Admins can upload JPG, PNG, WebP or GIF images directly to the configured Supabase Storage bucket, or use an HTTPS image URL. Date sheet URLs should point to PDFs accessible to the intended audience. Add content only after the school verifies it and has permission to publish identifying information.
 
 ## Files
 
-- `index.html` — page structure and accessible forms/dialog
-- `styles.css` — responsive visual design
-- `app.js` — rendering, local preview, Supabase authentication and editing
+- `index.html` — home page and admin sign-in/editor
+- `about.html` — school history, profile and service areas
+- `academics.html` — streams and subjects
+- `community.html` — staff, students and alumni
+- `gallery.html` — photo gallery
+- `updates.html` — date sheets, notices and complaint portal
+- `styles.css` — shared responsive visual design
+- `app.js` — shared rendering, navigation, local preview, Supabase authentication and editing
 - `config.example.js` — safe configuration template
 - `supabase-schema.sql` — tables, constraints and row-level access policies
