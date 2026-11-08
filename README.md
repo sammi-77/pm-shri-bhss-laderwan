@@ -4,7 +4,7 @@ A responsive, multi-page school information portal for Classes 9–12. Secondary
 
 ## Preview
 
-Open `index.html` in a browser and use the shared navigation to visit About, Academics, Community, Gallery and Updates. Without backend configuration, admin-managed content can be previewed and edited locally in that browser. Local edits are not shared. The complaint form clearly reports that messages are not transmitted in preview mode.
+Open `index.html` in a browser and use the shared navigation to visit About, Academics, Community, Gallery, Updates and Admissions. Without backend configuration, admin-managed content can be previewed and edited locally in that browser. Local edits are not shared. The complaint form clearly reports that messages are not transmitted in preview mode.
 
 ## Deploy on Vercel
 
@@ -25,7 +25,7 @@ Supabase Row Level Security makes content public-readable and admin-writable; co
 
 ## Admin-managed sections
 
-Sign in from the header to edit notices, staff, students, alumni, class-wise date sheets and gallery entries, and to review complaints. Admins can upload JPG, PNG, WebP or GIF images directly to the configured Supabase Storage bucket, or use an HTTPS image URL. Date sheet URLs should point to PDFs accessible to the intended audience. Add content only after the school verifies it and has permission to publish identifying information.
+Sign in from the header to edit notices, staff, students, alumni, class-wise date sheets and gallery entries, and to review complaints and private admission enquiries. Admins can upload JPG, PNG, WebP or GIF images directly to the configured Supabase Storage bucket, or use an HTTPS image URL. Date sheet URLs should point to PDFs accessible to the intended audience. Add content only after the school verifies it and has permission to publish identifying information.
 
 ## Files
 
@@ -35,7 +35,10 @@ Sign in from the header to edit notices, staff, students, alumni, class-wise dat
 - `community.html` — staff, students and alumni
 - `gallery.html` — photo gallery
 - `updates.html` — date sheets, notices and complaint portal
+- `admissions.html` — private admission enquiry form for Classes 9–12
 - `styles.css` — shared responsive visual design
 - `app.js` — shared rendering, navigation, local preview, Supabase authentication and editing
 - `config.example.js` — safe configuration template
-- `supabase-schema.sql` — tables, constraints and row-level access policies
+- `supabase-schema.sql` — tables, constraints and row-level access policies, including admissions
+- `supabase-admissions.sql` — additive migration for private admission requests
+
